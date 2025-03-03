@@ -1,0 +1,124 @@
+/* src/index.css */
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Define custom properties for theming */
+:root {
+  /* Colors */
+  --color-primary: #3B82F6; /* Light mode blue */
+  --color-primary-dark: #60A5FA; /* Dark mode blue */
+  --color-secondary: #10B981; /* Light mode green */
+  --color-secondary-dark: #34D399; /* Dark mode green */
+  --color-background: #F9FAFB; /* Light mode background */
+  --color-background-dark: #1F2937; /* Dark mode background */
+  --color-card: #FFFFFF; /* Light mode card */
+  --color-card-dark: #374151; /* Dark mode card */
+  --color-text: #1F2937; /* Light mode text */
+  --color-text-dark: #E5E7EB; /* Dark mode text */
+
+  /* Fonts */
+  --font-family-sans: 'Inter', sans-serif;
+}
+
+/* Dark mode overrides */
+:root.dark {
+  --color-primary: var(--color-primary-dark);
+  --color-secondary: var(--color-secondary-dark);
+  --color-background: var(--color-background-dark);
+  --color-card: var(--color-card-dark);
+  --color-text: var(--color-text-dark);
+}
+
+/* Apply global styles using Tailwind utilities */
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family-sans);
+}
+
+/* Custom utilities using Tailwind's apply directive */
+h1 {
+  @apply text-3xl font-bold;
+}
+
+h2 {
+  @apply text-2xl font-semibold;
+}
+
+h3 {
+  @apply text-xl font-semibold;
+}
+
+table {
+  @apply w-full border-collapse;
+}
+
+th, td {
+  @apply px-4 py-3 text-left;
+}
+
+th {
+  @apply bg-gray-100 dark:bg-gray-700 text-sm font-semibold uppercase;
+}
+
+td {
+  @apply border-t border-gray-200 dark:border-gray-600;
+}
+
+button {
+  @apply transition-all duration-200;
+}
+
+/* Custom styling for inputs and textareas */
+input, textarea {
+  @apply bg-white text-black border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)]; /* Light mode */
+}
+
+textarea {
+  @apply resize-y;
+}
+
+/* Dark mode styles for inputs and textareas */
+.dark input, .dark textarea {
+  @apply bg-gray-700 text-gray-200 border-gray-600 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)];
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Custom classes for reusability */
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.bg-card {
+  background-color: var(--color-card);
+}
+
+/* Define focus:ring-primary and other utilities using arbitrary values */
+.focus\:ring-primary:focus {
+  --tw-ring-color: var(--color-primary);
+}
+
+.focus\:border-primary:focus {
+  border-color: var(--color-primary);
+}
