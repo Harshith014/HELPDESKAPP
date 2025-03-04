@@ -1,0 +1,137 @@
+# HelpDesk Web Application
+
+## Overview
+The **HelpDesk Web Application** is a **MERN Stack**-based ticket management system designed to streamline customer support operations. It provides role-based access control for **Customers**, **Customer Service Agents**, and **Admins**, ensuring efficient handling of support requests.
+
+## Features
+
+### General Features
+- **Role-Based Access**: Distinct functionalities for Customers, Agents, and Admins.
+- **Responsive Design**: Optimized for mobile (320px, 375px, 425px), tablet, and desktop screens.
+- **Dark Mode**: Toggleable light/dark themes for user preference.
+- **Client-Side Routing**: Seamless navigation using React Router.
+
+### Customer Features
+- **Self-Registration**: Customers can create their own accounts.
+- **Ticket Management**: Submit new support tickets, add notes/replies, and view ticket history.
+- **Attachment Support**: Upload files along with tickets or notes.
+
+### Customer Service Agent Features
+- **Ticket Oversight**: View and manage all customer tickets.
+- **Status Updates**: Change ticket statuses (Active, Pending, Closed).
+- **Note Addition**: Add replies or notes to tickets with attachments.
+
+### Admin Features
+- **Full Ticket Access**: View and manage all tickets in the system.
+- **User Management**: Create, update, and delete user profiles.
+- **Dashboard Insights**: View statistics on tickets, customers, and agents.
+- **Status and Notes**: Update ticket statuses and add notes.
+
+## Tech Stack
+
+### Backend
+- **Node.js**: Server-side JavaScript runtime.
+- **Express.js**: Web framework for API development.
+- **MongoDB**: NoSQL database for storing tickets and user data.
+- **JWT**: JSON Web Tokens for authentication.
+- **Cloudinary**: Cloud storage for ticket attachments.
+
+### Frontend
+- **React**: JavaScript library for building UI components (**Vite-powered**).
+- **Tailwind CSS v4**: Utility-first CSS framework for styling.
+- **React Router**: Client-side routing.
+- **Context API**: State management for authentication.
+- **Axios**: HTTP client for API requests.
+- **Heroicons**: Icon library for UI elements.
+
+## Installation & Setup
+
+### Prerequisites
+Ensure you have the following installed:
+- **Node.js (v16+)**
+- **MongoDB** (Local or Cloud - e.g., MongoDB Atlas)
+- **Cloudinary Account** (for file uploads)
+
+### Backend Setup
+```sh
+# Clone the repository
+git clone https://github.com/yourusername/helpdesk-webapp.git
+cd helpdesk-webapp/backend
+
+# Install dependencies
+npm install
+
+# Create a .env file and add the following variables
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+
+# Start the server
+npm start
+```
+The backend will run on **http://localhost:5000**.
+
+### Frontend Setup
+```sh
+cd ../frontend
+
+# Install dependencies
+npm install
+
+# Start the React app
+npm run dev
+```
+The frontend will run on **http://localhost:5173**.
+
+## API Endpoints
+| Method | Endpoint              | Description |
+|--------|----------------------|-------------|
+| POST   | /api/auth/register    | Register a new user |
+| POST   | /api/auth/login       | User login |
+| GET    | /api/tickets          | Fetch all tickets (Admin & Agent) |
+| POST   | /api/tickets          | Create a new ticket (Customer) |
+| GET    | /api/tickets/:id      | Fetch a single ticket |
+| PATCH  | /api/tickets/:id      | Update ticket status |
+| POST   | /api/tickets/:id/notes | Add a note to a ticket |
+| GET    | /api/users            | Fetch all users (Admin) |
+| PATCH  | /api/users/:id        | Update user role/profile |
+
+## Folder Structure
+```
+helpdesk-webapp/
+├── backend/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   ├── config/
+│   ├── server.js
+│   ├── .env
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── context/
+│   │   ├── App.js
+│   │   ├── main.jsx
+│   ├── public/
+│   ├── vite.config.js
+│
+├── README.md
+├── package.json
+```
+
+## Future Enhancements
+- **Live Chat Integration** for real-time support.
+- **Email Notifications** for ticket updates.
+- **AI-Powered Auto-Suggestions** for common issues.
+
+## Contributors
+- **Your Name** - [GitHub](https://github.com/yourusername)
+
+## License
+This project is licensed under the **MIT License**.
+
